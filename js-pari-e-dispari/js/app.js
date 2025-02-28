@@ -13,25 +13,35 @@ const isNumValid = userNum >= 1 && userNum <= 5;
 
 const cpuNum = randomOneToFive();
 
-const sum = userNum + cpuNum;
-
 const isChoiceEven = choice === 'pari';
 
-const isSumEven = sum % 2 === 0;
+const isSumEven = twoNumSumEven(userNum, cpuNum);
+
+if (!(isChoiceValid && isNumValid)) {
+  console.log('Input non validi')
+} else if (isChoiceEven === isSumEven) {
+  console.log(`
+    L'utente ha scelto "${choice}" e ha inserito il numero ${userNum}.
+    Il computer ha generato il numero ${cpuNum}.
+    Il vincitore é l'utente!`);
+} else {
+  console.log(`
+    L'utente ha scelto "${choice}" e ha inserito il numero ${userNum}.
+    Il computer ha generato il numero ${cpuNum}.
+    Il vincitore é il computer!`);
+}
 
 
 
-
-
-
-console.log(choice);
-console.log(userNum);
-console.log(cpuNum);
-
-
-
-
+// Funzione per generare un numero randomico tra 1 e 5
 function randomOneToFive() {
   const number = Math.ceil(Math.random() * 5);
   return number;
+}
+
+// Funzione per valutare se la somma di due numeri é pari
+function twoNumSumEven(firstNum, secondNum) {
+  const sum = firstNum + secondNum;
+  const isEven = sum % 2 === 0;
+  return isEven;
 }
