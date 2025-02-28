@@ -11,10 +11,24 @@ const userNum = parseInt(prompt('Inserire un numero da 1 a 5'));
 
 const isNumValid = userNum >= 1 && userNum <= 5;
 
+const cpuNum = randomOneToFive();
+
+const sum = userNum + cpuNum;
+
+const isChoiceEven = choice === 'pari';
+
+const isSumEven = sum % 2 === 0;
 
 
 
-console.log(randomOneToFive());
+
+
+
+console.log(choice);
+console.log(userNum);
+console.log(cpuNum);
+
+
 
 
 function randomOneToFive() {
